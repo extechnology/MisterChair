@@ -166,9 +166,9 @@ export default function ContactPage() {
 
                         <div className="space-y-6 mb-12">
                             {[
-                                { icon: Mail, label: "Email Us", value: "hello@mrchair.com", link: "mailto:hello@mrchair.com" },
-                                { icon: Phone, label: "Call Us", value: "+1 (555) 123-4567", link: "tel:+15551234567" },
-                                { icon: MapPin, label: "Visit HQ", value: "123 Furniture Lane, Design District, NY", link: "#" }
+                                { icon: Mail, label: "Email Us", value: "infomrchair@gmail.com", link: "mailto:infomrchair@gmail.com" },
+                                { icon: Phone, label: "Call Us", value: "098959 28262", link: "tel:+9109895928262" },
+                                { icon: MapPin, label: "Visit HQ", value: "11th Miles, Airport Rd, Vaidyarangadi, Ramanattukara, Kozhikode, Kerala 673633", link: "#" }
                             ].map((item, idx) => (
 
                                 <motion.a
@@ -199,8 +199,7 @@ export default function ContactPage() {
                             <h3 className="text-xl font-bold text-stone-900 mb-2">Opening Hours</h3>
 
                             <div className="space-y-2 text-stone-600">
-                                <p className="flex justify-between"><span>Mon - Fri</span> <span className="font-medium">9:00 AM - 6:00 PM</span></p>
-                                <p className="flex justify-between"><span>Saturday</span> <span className="font-medium">10:00 AM - 4:00 PM</span></p>
+                                <p className="flex justify-between"><span>Monday - Saturday</span> <span className="font-medium">10:00 AM - 6:00 PM</span></p>
                                 <p className="flex justify-between"><span>Sunday</span> <span className="font-medium text-[#b8604f]">Closed</span></p>
                             </div>
 
@@ -334,15 +333,7 @@ export default function ContactPage() {
             {/* --- Google Map Embed --- */}
             <section className="h-[500px] w-full relative z-0">
 
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.15830869428!2d-74.119763973046!3d40.69766374874431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1647043424153!5m2!1sen!2s"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    className="transition-all duration-700"
-                ></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3542.0558342878344!2d75.8804441745221!3d11.180297351615424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba651c62c6a9cfb%3A0x77c9e2306298e795!2sMr.Chair!5e1!3m2!1sen!2sin!4v1770892518197!5m2!1sen!2sin" className="transition-all duration-700 w-full h-full" width="600" height="450" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
 
             </section>
 

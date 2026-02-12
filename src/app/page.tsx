@@ -29,7 +29,7 @@ export default function Home() {
 
 
       {/* Promo section  */}
-      <PromoSection />
+      {/* <PromoSection /> */}
 
 
       {/* Features section  */}
