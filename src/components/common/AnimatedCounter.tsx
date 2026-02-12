@@ -16,7 +16,7 @@ export default function AnimatedCounter({
         damping: 30,
         stiffness: 100,
     });
-    const isInView = useInView(ref, { once: true, margin: "-100px" });
+    const isInView = useInView(ref, { once: true, margin: "-20px" });
 
     useEffect(() => {
         if (isInView) {
