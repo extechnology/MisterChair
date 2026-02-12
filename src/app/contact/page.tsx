@@ -374,17 +374,17 @@ function FAQItem({ question, answer, index }: { question: string; answer: string
             transition={{ delay: index * 0.1 }}
             className="border-b border-stone-200 last:border-0"
         >
-          
+
             <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="w-full flex justify-between items-center py-6 text-left focus:outline-none group"
             >
                 <span className="text-lg md:text-xl font-medium text-stone-800 group-hover:text-[#b8604f] transition-colors">{question}</span>
-          
+
                 <span className={`w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center text-stone-400 transition-all duration-300 ${isOpen ? "bg-[#b8604f] border-[#b8604f] text-white rotate-180" : "group-hover:border-[#b8604f] group-hover:text-[#b8604f]"}`}>
                     {isOpen ? <Minus size={16} /> : <Plus size={16} />}
                 </span>
-          
+
             </button>
 
 

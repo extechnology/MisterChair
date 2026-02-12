@@ -25,11 +25,11 @@ export default function Footer() {
                     <div className="space-y-6">
 
                         <Link href="/" className="inline-block">
-                            <span className="text-2xl font-serif italic text-white font-medium">Mr. Chair</span>
+                            <span className="text-3xl font-serif italic text-white font-medium">Mr. Chair</span>
                         </Link>
 
                         <p className="text-sm leading-relaxed max-w-xs text-stone-400">
-                            Crafting comfort for the modern home since 2024. Discover furniture designed to elevate your living space.
+                            Crafting comfort for the modern home since 2006. Discover furniture designed to elevate your living space.
                         </p>
 
                         <div className="flex items-center gap-4 pt-2">
@@ -48,10 +48,9 @@ export default function Footer() {
                         <h4 className="text-white font-medium mb-6 uppercase text-xs tracking-widest">Quick Links</h4>
                         <ul className="space-y-4 text-sm">
                             <FooterLink href="/" label="Home" />
-                            <FooterLink href="/shop" label="Shop All" />
-                            <FooterLink href="/collections" label="Collections" />
-                            <FooterLink href="/about" label="About Us" />
-                            <FooterLink href="/blog" label="Journal" />
+                            <FooterLink href="/products" label="Products" />
+                            <FooterLink href="/story" label="Our Story" />
+                            <FooterLink href="/contact" label="Contact" />
                         </ul>
                     </div>
 
@@ -76,17 +75,18 @@ export default function Footer() {
                             <li className="flex items-start gap-3">
                                 <MapPin size={18} className="text-[#b8604f] shrink-0 mt-0.5" />
                                 <span>
-                                    123 Furniture Blvd, <br />
-                                    Design District, NY 10001
+                                    11th Miles, Airport Rd, <br /> Vaidyarangadi,
+                                    Ramanattukara, Kozhikode, Kerala 673633
+
                                 </span>
                             </li>
                             <li className="flex items-center gap-3">
                                 <Phone size={18} className="text-[#b8604f] shrink-0" />
-                                <a href="tel:+1234567890" className="hover:text-white transition-colors">+1 (555) 123-4567</a>
+                                <a href="tel:+919895928262" className="hover:text-white transition-colors">098959 28262</a>
                             </li>
                             <li className="flex items-center gap-3">
                                 <Mail size={18} className="text-[#b8604f] shrink-0" />
-                                <a href="mailto:hello@mrchair.com" className="hover:text-white transition-colors">hello@mrchair.com</a>
+                                <a href="mailto:infomrchair@gmail.com" className="hover:text-white transition-colors">infomrchair@gmail.com</a>
                             </li>
                         </ul>
                     </div>

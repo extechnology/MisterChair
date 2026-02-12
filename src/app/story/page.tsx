@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform, Variants } from "framer-motion";
-import { Leaf, Award, PenTool, User, Calendar, MapPin, ArrowRight } from "lucide-react";
+import { Leaf, Award, PenTool, User } from "lucide-react";
 import AnimatedCounter from "@/components/common/AnimatedCounter";
 import { useRef } from "react";
 
@@ -82,7 +82,7 @@ export default function AboutPage() {
                     >
 
                         <motion.span variants={fadeInUp} className="inline-block mb-4 text-sm md:text-base font-bold tracking-[0.3em] uppercase text-[#b8604f] bg-white/10 backdrop-blur-sm px-4 py-1 rounded-full border border-white/20">
-                            Since 2024
+                            Since 2006
                         </motion.span>
 
                         <motion.h1 variants={fadeInUp} className="text-6xl md:text-8xl font-light mb-6 tracking-tight">
@@ -90,7 +90,7 @@ export default function AboutPage() {
                         </motion.h1>
 
                         <motion.p variants={fadeInUp} className="max-w-2xl mx-auto text-lg md:text-2xl text-stone-200 font-light leading-relaxed">
-                            Furniture is more than function. It's the backdrop to your life's most cherished moments.
+                            Stylish seating with solid construction Perfect balance of form and function.
                         </motion.p>
 
                     </motion.div>
@@ -126,15 +126,15 @@ export default function AboutPage() {
                         </motion.span>
 
                         <motion.h2 variants={fadeInUp} className="text-4xl md:text-6xl text-stone-900 mb-8 font-light leading-tight">
-                            From a garage project to <br /> <span className="font-serif italic text-stone-600">global design.</span>
+                            Crafted for Comfort, <br /> <span className="font-serif italic text-stone-600">Designed to Last.</span>
                         </motion.h2>
 
-                        <motion.div variants={fadeInUp} className="space-y-6 text-stone-600 leading-relaxed text-lg font-light">
+                        <motion.div variants={fadeInUp} className="space-y-4 text-stone-600 leading-relaxed text-lg font-light text-justify">
                             <p>
-                                <strong className="text-stone-900 font-medium">Mr. Chair</strong> was born out of frustration. We looked around and saw furniture that was either beautiful but fragile, or durable but dull. We wanted both.
+                                <strong className="text-stone-900 font-medium">Mr. Chair</strong> is a trusted manufacturer of high-quality chairs designed for comfort, durability, and style. With a focus on expert craftsmanship and premium materials, we create seating solutions for homes, offices, and commercial spaces.
                             </p>
                             <p>
-                                What began with a single chair design in 2024 has grown into a movement. We don't just build chairs; we engineer comfort using traditional joinery and modern ergonomics.
+                                Every chair reflects our commitment to innovation, ergonomic support, and long-lasting performance, ensuring comfort you can rely on every day.
                             </p>
                         </motion.div>
 
@@ -170,7 +170,116 @@ export default function AboutPage() {
 
 
 
-            {/* --- The Journey (Timeline) --- */}
+
+            {/* --- Chairman's Message Section --- */}
+            <section className="py-16 md:py-14 bg-stone-100/50">
+
+
+                <div className="mx-auto px-4 md:px-20">
+
+
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+
+                        {/* Left Side - Image */}
+                        <motion.div
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                            variants={scaleIn}
+                            className="lg:col-span-5 relative group"
+                        >
+
+
+                            <div className="relative h-[500px] w-full rounded-2xl overflow-hidden shadow-2xl">
+
+
+                                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent z-10" />
+
+
+                                <img
+                                    src="https://images.pexels.com/photos/3778603/pexels-photo-3778603.jpeg"
+                                    alt="Md. Afsal - Chairman"
+                                    className="w-full h-full object-cover object-top transform scale-100 group-hover:scale-105 transition-transform duration-1000"
+                                />
+
+
+                                <div className="absolute bottom-6 left-6 z-20 text-white">
+                                    <h3 className="text-2xl font-bold">Md. Afsal</h3>
+                                    <p className="text-[#b8604f] uppercase tracking-widest text-sm font-semibold">Chairman</p>
+                                </div>
+
+                            </div>
+
+
+                            {/* Decorative element */}
+                            <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-[#b8604f]/10 rounded-full blur-2xl -z-10" />
+                            <div className="absolute -top-6 -left-6 w-32 h-32 bg-stone-200 rounded-full blur-3xl -z-10" />
+
+
+                        </motion.div>
+
+
+
+                        {/* Right Side - Content */}
+                        <motion.div
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                            variants={staggerContainer}
+                            className="lg:col-span-7"
+                        >
+
+                            <motion.span variants={fadeInUp} className="inline-block mb-4 text-xs font-bold tracking-[0.2em] uppercase text-[#b8604f] bg-[#b8604f]/5 px-3 py-1 rounded-full border border-[#b8604f]/10">
+                                Leadership
+                            </motion.span>
+
+
+                            <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-light text-stone-900 mb-8 leading-tight">
+                                A Message from <br />
+                                <span className="font-serif italic text-stone-600">The Chairman</span>
+                            </motion.h2>
+
+
+                            <motion.div variants={fadeInUp} className="relative">
+
+                                <span className="absolute -top-6 -left-4 text-8xl font-serif text-[#b8604f]/10 user-select-none opacity-50">“</span>
+
+
+                                <blockquote className="relative z-10 text-lg md:text-xl text-stone-600 font-light leading-relaxed space-y-6 text-justify">
+                                    <p>
+                                        As Chairman of <strong className="font-medium text-stone-900">Mr. Chair</strong>, I am proud of the journey we have built through dedication, innovation, and unwavering commitment to quality. From our roots in manufacturing to becoming a trusted chair brand, our focus has always been on delivering comfort, durability, and value.
+                                    </p>
+                                    <p>
+                                        Every chair we produce reflects our passion for craftsmanship and customer satisfaction. With the support of our team and partners, we continue to evolve by adopting modern technology and design.
+                                    </p>
+                                    <p className="text-stone-800 font-normal italic">
+                                        "Our vision is to strengthen trust, expand digitally, and serve our customers with excellence for many years to come."
+                                    </p>
+                                </blockquote>
+
+
+                                <div className="mt-8 flex items-center gap-4">
+                                    <div className="h-px bg-stone-300 w-16" />
+                                    <span className="font-serif italic text-stone-500 text-lg">Md. Afsal</span>
+                                </div>
+
+                            </motion.div>
+
+
+                        </motion.div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+
+
+            {/* --- Our Journey (Timeline) --- */}
             <section className="py-10 bg-white border-y border-stone-100 overflow-hidden">
 
 
@@ -196,10 +305,15 @@ export default function AboutPage() {
 
 
                         {[
-                            { year: "2020", title: "The Idea", desc: "Sketches in a notebook. The dream of a perfect chair takes shape." },
-                            { year: "2022", title: "First Prototype", desc: "After 50 failed attempts, the 'Nomad' chair is born." },
-                            { year: "2024", title: "Official Launch", desc: "Mr. Chair launches online, selling out the first batch in 48 hours." },
-                            { year: "2025", title: "Global Reach", desc: "Expanding shipping to 20+ countries and opening our first showroom." }
+
+                            { year: "2006", title: "The Beginning", desc: "Our journey began in 2006 under the leadership of Md. Afsal with the establishment of MS Steel Furniture. We started by manufacturing durable steel chairs, laying a strong foundation built on quality, trust, and workmanship." },
+                            { year: "2010", title: "Expansion & Diversification", desc: "As demand grew, we expanded our operations into the manufacturing and distribution of steel wall drops and related products. During this phase, we adopted modern designs and improved manufacturing techniques to enhance product quality and delivery efficiency." },
+                            { year: "2014", title: "Entering the Office Seating Segment", desc: "By 2017, we stepped into a new segment by producing office chairs and related seating solutions. This marked a major milestone as we successfully served businesses with reliable, ergonomic, and functional seating products" },
+                            { year: "2018", title: "Strengthening the Brand", desc: "With growing experience and market presence, we strengthened our production capabilities and customer reach. Our focus remained on consistent quality, timely delivery, and customer satisfaction, serving clients across Kerala, Tamil Nadu, and Karnataka." },
+                            { year: "2022 - 2026", title: "Rebranding & Future Growth", desc: "In 2022, we proudly rebranded as Mr. Chair, marking a new era in our journey. We began manufacturing all types of chairs in large quantities, offering 100% customization to meet diverse customer needs." },
+                            { year: "Goal Reach", title: "Goal Reach", desc: "To date, we have delivered over 4 lakh chairs across South India. Looking ahead to 2026, we are transforming our business into a digital-first brand with a full-fledged e-commerce platform, ensuring wider reach, seamless ordering, and enhanced customer experience." },
+                            { year: "Mr. Chair’s Goal", title: "Mr. Chair’s Goal", desc: "Is to deliver high-quality, customizable seating solutions by combining modern design, durable manufacturing, and reliable service, while continuously evolving through innovation, technology, and customer-focused excellence.." },
+
                         ].map((item, idx) => (
 
                             <motion.div
@@ -216,20 +330,23 @@ export default function AboutPage() {
 
 
                                     <div className={`hidden md:block ${idx % 2 === 0 ? "text-left" : "text-right"}`}>
-                                        <span className="text-[#b8604f] font-bold text-5xl opacity-20 absolute top-0 -mt-4 transform" style={{ left: idx % 2 === 0 ? "3rem" : "auto", right: idx % 2 === 0 ? "auto" : "3rem" }}>{item.year}</span>
-                                        <h3 className="text-2xl font-bold text-stone-900 mb-2 relative z-10">{item.title}</h3>
-                                        <p className="text-stone-500">{item.desc}</p>
+                                        <span className="text-[#b8604f]/20 font-bold text-6xl md:text-4xl absolute top-0 -mt-8 transform scale-150 origin-center z-0 select-none" style={{ left: idx % 2 === 0 ? "2rem" : "auto", right: idx % 2 === 0 ? "auto" : "2rem" }}>{item.year}</span>
+                                        <div className="relative z-10">
+                                            <span className="text-[#b8604f] font-bold text-sm tracking-widest uppercase mb-2 block">{item.year}</span>
+                                            <h3 className="text-3xl font-serif italic text-stone-900 mb-4">{item.title}</h3>
+                                            <p className="text-stone-600 text-lg font-light leading-relaxed text-justify">{item.desc}</p>
+                                        </div>
                                     </div>
 
                                     {/* Mobile View */}
-                                    <div className="md:hidden block">
-                                        <span className="text-[#b8604f] font-bold text-sm mb-1 block">{item.year}</span>
-                                        <h3 className="text-xl font-bold text-stone-900 mb-2">{item.title}</h3>
-                                        <p className="text-stone-500 text-sm">{item.desc}</p>
+                                    <div className="md:hidden block relative pl-6 border-l border-stone-200 ml-2">
+                                        <div className="absolute left-0 top-0 w-3 h-3 bg-[#b8604f] rounded-full -translate-x-[7px] border-2 border-white ring-1 ring-[#b8604f]/20"></div>
+                                        <span className="text-[#b8604f] font-bold text-xs tracking-widest uppercase mb-1 block">{item.year}</span>
+                                        <h3 className="text-xl font-serif italic text-stone-900 mb-2">{item.title}</h3>
+                                        <p className="text-stone-600 text-sm font-light leading-relaxed text-justify">{item.desc}</p>
                                     </div>
 
                                 </div>
-
 
                                 {/* Dot */}
                                 <div className="absolute left-[20px] md:left-1/2 w-4 h-4 bg-[#b8604f] rounded-full border-4 border-white shadow-md -translate-x-1/2 z-10" />
@@ -272,10 +389,10 @@ export default function AboutPage() {
                     <PenTool size={48} className="mx-auto mb-8 text-[#b8604f]" />
 
                     <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif italic leading-tight mb-8">
-                        "Design is not just what it looks like and feels like. Design is how it works."
+                        "Every detail is made with purpose Comfort is never an afterthought."
                     </h2>
 
-                    <p className="text-stone-300 uppercase tracking-widest text-sm">— Steve Jobs (Inspiration)</p>
+                    <p className="text-stone-300 uppercase tracking-widest text-sm">— Mr. Chair</p>
 
                 </motion.div>
 
@@ -306,18 +423,18 @@ export default function AboutPage() {
                         {[
                             {
                                 icon: Leaf,
-                                title: "Sustainable Roots",
-                                desc: "We plant a tree for every chair sold. Our wood is FSC certified and our fabrics are organic."
+                                title: "Superior Quality & Durability",
+                                desc: "Chairs manufactured with premium materials and advanced techniques for long-lasting comfort and strength"
                             },
                             {
                                 icon: Award,
-                                title: "Master Craftsmanship",
-                                desc: "30+ hours of hand-work goes into every piece. No assembly lines, just skilled hands."
+                                title: "100% Customization",
+                                desc: "Tailor-made seating solutions designed to meet your exact space, style, and functional requirements."
                             },
                             {
                                 icon: User,
-                                title: "Human Centric",
-                                desc: "Designed for real bodies and real homes. We prototype endlessly until it feels perfect."
+                                title: "Trusted Experience & Reliable Delivery",
+                                desc: "Proven expertise with lakhs of chairs delivered across South India, ensuring timely and dependable service."
                             }
                         ].map((item, idx) => (
 
@@ -350,102 +467,22 @@ export default function AboutPage() {
 
 
 
-            {/* --- Meet the Makers --- */}
-            <section className="py-12 bg-white">
-
-
-                <div className="mx-auto px-4 md:px-20">
-
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6"
-                    >
-                        <div>
-                            <span className="text-stone-400 uppercase tracking-[0.2em] text-xs font-bold mb-3 block">Team</span>
-                            <h2 className="text-4xl md:text-5xl font-light text-stone-900">Meet the <span className="font-serif italic">Makers</span></h2>
-                        </div>
-
-                        <button className="group flex items-center gap-2 text-stone-900 font-semibold border-b border-stone-200 pb-1 hover:border-[#b8604f] hover:text-[#b8604f] transition-colors">
-                            Join the team <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                        </button>
-
-                    </motion.div>
-
-
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-
-                        {[
-                            { name: "John Doe", role: "Lead Designer", img: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg" },
-                            { name: "Elena R.", role: "Master Joiner", img: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg" },
-                            { name: "Marcus T.", role: "Sustainability", img: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg" }
-                        ].map((member, i) => (
-
-                            <motion.div
-                                key={i}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: i * 0.2, duration: 0.6 }}
-                                className="group text-center cursor-pointer"
-                            >
-
-                                <div className="relative overflow-hidden rounded-2xl aspect-3/4 mb-6 shadow-md group-hover:shadow-2xl transition-all duration-500">
-
-                                    <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/10 transition-colors duration-500 z-10" />
-
-                                    <img
-                                        src={member.img}
-                                        alt={member.name}
-                                        className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                                    />
-
-                                </div>
-
-
-                                <h3 className="text-2xl md:text-3xl font-serif italic text-stone-900 group-hover:text-[#b8604f] transition-colors duration-300">
-                                    {member.name}
-                                </h3>
-
-
-                                <p className="text-stone-400 text-xs font-bold uppercase tracking-[0.2em] mt-2">
-                                    {member.role}
-                                </p>
-
-
-                            </motion.div>
-
-
-                        ))}
-
-                    </div>
-
-
-                </div>
-
-            </section>
-
-
-
 
             {/* --- Animated Stats --- */}
             <section className="py-24 bg-stone-950 text-white relative overflow-hidden">
-               
+
                 <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-[#b8604f]/10 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
 
                 <div className="max-w-7xl mx-auto px-4 md:px-20 relative z-10">
-                   
-                   
+
+
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-8 text-center divide-x divide-stone-800/50">
-                   
+
                         {[
-                            { num: 2024, label: "Founded", isDate: true },
-                            { num: 5000, label: "Happy Clients", suffix: "+" },
-                            { num: 150, label: "Unique Products", suffix: "+" },
-                            { num: 12, label: "Awards Won" }
+                            { num: 2006, label: "Founded", isDate: true },
+                            { num: 35000, label: "Happy Clients", suffix: "+" },
+                            { num: 4, label: "Unique Products", suffix: "LK +" },
+                            { num: 150, label: "Comfort Designs", suffix: "+" }
 
                         ].map((stat, i) => (
 
@@ -453,7 +490,7 @@ export default function AboutPage() {
                                 key={i}
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
+                                viewport={{ once: true, margin: "-20px" }}
                                 transition={{ delay: i * 0.1 }}
                                 className="px-4"
                             >
@@ -471,6 +508,101 @@ export default function AboutPage() {
 
                     </div>
 
+                </div>
+
+            </section>
+
+
+
+
+            {/* --- Quality Section --- */}
+            <section className="py-8 md:py-14 bg-white overflow-hidden relative">
+
+
+                <div className="mx-auto px-4 md:px-20 relative z-10">
+
+
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+                        {/* Content Side */}
+                        <motion.div
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                            variants={staggerContainer}
+                            className="order-2 lg:order-1"
+                        >
+
+                            <motion.span variants={fadeInUp} className="text-[#b8604f] font-bold tracking-widest uppercase text-xs mb-4 block">
+                                Our Promise
+                            </motion.span>
+
+
+                            <motion.h2 variants={fadeInUp} className="text-4xl md:text-6xl text-stone-900 mb-8 font-light leading-tight">
+                                Quality is Always <br /> <span className="font-serif italic text-stone-600">Prior to Us.</span>
+                            </motion.h2>
+
+
+                            <motion.div variants={fadeInUp} className="space-y-6 text-stone-600 leading-relaxed text-lg font-light text-justify">
+                                <p>
+                                    Quality is the foundation of <strong className="font-medium text-stone-900">Mr. Chair</strong>. Every chair is manufactured with premium materials, precise engineering, and strict quality control at every stage of production. Our processes follow international standards, ensuring durability, comfort, and consistent performance.
+                                </p>
+                                <p>
+                                    Being <span className="text-stone-900 font-medium">ISO 9001:2015 certified</span>, we maintain a systematic approach to quality management, continuous improvement, and customer satisfaction.
+                                </p>
+                                <p>
+                                    From design to delivery, each product is carefully inspected to meet our high benchmarks. This commitment to certified quality enables Mr. Chair to deliver reliable, long-lasting, and customizable seating solutions that customers can trust for homes, offices, and commercial spaces.
+                                </p>
+                            </motion.div>
+
+                            <motion.div variants={fadeInUp} className="mt-10 flex items-center gap-6">
+                                <div className="flex flex-col">
+                                    <span className="text-3xl font-bold text-stone-900">ISO</span>
+                                    <span className="text-xs uppercase tracking-widest text-[#b8604f] font-bold">9001:2015 Certified</span>
+                                </div>
+                                <div className="h-12 w-px bg-stone-200" />
+                                <div className="flex flex-col">
+                                    <span className="text-3xl font-bold text-stone-900">100%</span>
+                                    <span className="text-xs uppercase tracking-widest text-[#b8604f] font-bold">Quality Check</span>
+                                </div>
+                            </motion.div>
+
+                        </motion.div>
+
+
+                        {/* Image Side */}
+                        <motion.div
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                            variants={scaleIn}
+                            className="order-1 lg:order-2 relative h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl group"
+                        >
+                            <div className="absolute inset-0 bg-stone-900/10 group-hover:bg-stone-900/20 transition-colors duration-500 z-10" />
+
+                            <img
+                                src="https://images.pexels.com/photos/1267325/pexels-photo-1267325.jpeg"
+                                alt="Quality Control Inspection"
+                                loading="lazy"
+                                className="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-1000"
+                            />
+
+                            {/* Floating Badge */}
+                            <div className="absolute top-6 right-6 z-20 bg-white/90 backdrop-blur-md p-4 rounded-full shadow-lg w-24 h-24 flex items-center justify-center border border-white/50">
+                                <div className="text-center">
+                                    <Award size={24} className="text-[#b8604f] mx-auto mb-1" />
+                                    <span className="text-[10px] font-bold uppercase tracking-wider text-stone-800">Premium<br />Quality</span>
+                                </div>
+                            </div>
+
+                        </motion.div>
+
+                    </div>
+                </div>
+
+                {/* Background Decorative Text */}
+                <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/4 select-none opacity-[0.03] pointer-events-none">
+                    <span className="text-[20rem] font-bold font-serif text-stone-900 leading-none">Quality</span>
                 </div>
 
             </section>

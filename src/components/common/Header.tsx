@@ -129,8 +129,8 @@ export default function Header() {
 
                     {/* Center: Logo */}
                     <div className="absolute left-1/2 transform -translate-x-1/2">
-                        <Link href="/" className="text-2xl md:text-3xl font-serif font-bold text-[#6b4c3b] tracking-tight">
-                            Mr Chair
+                        <Link href="/" className="block">
+                            <img src="/logo.png" alt="Mr. Chair" className="h-40 w-auto object-contain" />
                         </Link>
                     </div>
 
@@ -181,7 +181,9 @@ export default function Header() {
 
                             <div className="flex justify-between items-center mb-8">
 
-                                <span className="text-xl font-serif font-bold text-stone-800">Mr Chair</span>
+                                <span className="block w-32">
+                                    <img src="/logo.png" alt="Mr. Chair" className="h-10 w-auto object-contain" />
+                                </span>
 
                                 <button
                                     onClick={() => setIsMobileMenuOpen(false)}
@@ -261,7 +263,7 @@ export default function Header() {
                                                             <div key={category.title}>
 
 
-                                                                <span className="text-sm font-bold text-[#6b4c3b] block mb-2">{category.title}</span>
+                                                                <span className="text-sm font-bold text-[#b8604f] block mb-2">{category.title}</span>
 
 
                                                                 <ul className="pl-2 border-l-2 border-stone-100 space-y-2">

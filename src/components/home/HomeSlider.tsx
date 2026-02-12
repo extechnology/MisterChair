@@ -141,11 +141,11 @@ export default function HomeSlider() {
                             transition={{ duration: 0.8, delay: 0.3 }}
                         >
 
-                            <h1 className="text-5xl md:text-7xl font-sans font-medium text-white mb-4 tracking-tight drop-shadow-sm">
+                            <h1 className="text-5xl md:text-8xl font-serif italic font-medium text-white mb-6 tracking-tight drop-shadow-md">
                                 {currentSlide.title}
                             </h1>
 
-                            <p className="text-white/80 text-sm md:text-base leading-relaxed mb-8 font-light max-w-sm drop-shadow-sm">
+                            <p className="text-white/90 text-lg md:text-xl leading-relaxed mb-10 font-light max-w-xl drop-shadow-md tracking-wide">
                                 {currentSlide.description}
                             </p>
 
