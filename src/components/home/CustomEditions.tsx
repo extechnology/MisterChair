@@ -53,7 +53,7 @@ export default function CustomEditions() {
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="mt-10 group bg-black text-white px-8 py-3.5 rounded-full flex items-center gap-3 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white hover:border-[#b8604f]/20 hover:cursor-pointer"
+                            className="mt-10 group bg-black text-white px-8 py-3.5 rounded-full flex items-center gap-3 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white hover:cursor-pointer"
                         >
                             <span className="text-xs font-bold uppercase tracking-[0.2em] group-hover:text-[#b8604f] transition-colors">Explore</span>
 
