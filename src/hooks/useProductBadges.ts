@@ -1,33 +1,33 @@
 
+
 export interface ProductBadgeConfig {
     type: 'discount' | 'new' | 'bestseller' | 'trending' | 'limited';
     label: string;
     description: string;
-    colorClass: string; // Tailwind bg color class
-    gradientClass?: string; // Optional gradient for extra flair
+    colorClass: string;
+    gradientClass?: string;
     textColorClass?: string;
     ringColorClass?: string;
 }
 
+
+
 interface UseProductBadgesProps {
     price: number;
     discountPrice?: number;
-    isNew?: boolean;
-    isBestSeller?: boolean;
-    isTrending?: boolean;
-    isLimited?: boolean;
+    specialTag?: 'New' | 'Bestseller' | 'Trending' | 'Limited';
 }
 
-export const useProductBadges = ({
-    price,
-    discountPrice,
-    isNew,
-    isBestSeller,
-    isTrending,
-    isLimited,
-}: UseProductBadgesProps) => {
+
+
+
+
+export const useProductBadges = ({ price, discountPrice, specialTag }: UseProductBadgesProps) => {
+
+
     let discountBadge: ProductBadgeConfig | null = null;
     let statusBadge: ProductBadgeConfig | null = null;
+
 
     // 1. Calculate Discount Badge
     if (discountPrice && discountPrice < price) {
@@ -44,8 +44,11 @@ export const useProductBadges = ({
         }
     }
 
-    // 2. Determine Status Badge (Priority: Limited > BestSeller > New > Trending)
-    if (isLimited) {
+
+
+    // 2. Determine Status Badge
+    if (specialTag === 'Limited') {
+
         statusBadge = {
             type: 'limited',
             label: 'Limited Edition',
@@ -54,7 +57,9 @@ export const useProductBadges = ({
             gradientClass: 'from-purple-500 via-purple-600 to-purple-800',
             textColorClass: 'text-white',
         };
-    } else if (isBestSeller) {
+
+    } else if (specialTag === 'Bestseller') {
+
         statusBadge = {
             type: 'bestseller',
             label: 'Best Seller',
@@ -63,7 +68,9 @@ export const useProductBadges = ({
             gradientClass: 'from-emerald-500 via-emerald-600 to-emerald-800',
             textColorClass: 'text-white',
         };
-    } else if (isNew) {
+
+    } else if (specialTag === 'New') {
+
         statusBadge = {
             type: 'new',
             label: 'New Arrival',
@@ -72,7 +79,9 @@ export const useProductBadges = ({
             gradientClass: 'from-rose-500 via-rose-600 to-rose-800',
             textColorClass: 'text-white',
         };
-    } else if (isTrending) {
+
+    } else if (specialTag === 'Trending') {
+
         statusBadge = {
             type: 'trending',
             label: 'Trending',
@@ -81,7 +90,11 @@ export const useProductBadges = ({
             gradientClass: 'from-amber-400 via-amber-500 to-amber-600',
             textColorClass: 'text-white',
         };
+
     }
 
+
     return { discountBadge, statusBadge };
+
 };
+

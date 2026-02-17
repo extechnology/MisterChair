@@ -4,16 +4,27 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Search, ShoppingBag, Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import ProductDropdown, { productCategories } from "@/components/common/ProductDropdown";
+import ProductDropdown from "@/components/common/ProductDropdown";
+import SearchModal from "@/components/common/SearchModal";
+import { useGetNavbarCategories } from "@/service/product/useProduct";
+import { BrowseByCategoryType } from "@/types/type";
+
+
 
 
 
 export default function Header() {
 
 
+
+    // Fetch categories for mobile menu
+    const { data: navbarCategories, isLoading } = useGetNavbarCategories();
+
+
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isProductDropdownOpen, setIsProductDropdownOpen] = useState(false);
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [expandedMobileLink, setExpandedMobileLink] = useState<string | null>(null);
 
 
@@ -52,6 +63,8 @@ export default function Header() {
 
         <>
 
+            {/* Search Modal */}
+            <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
 
             <motion.header
                 className={`fixed top-4 left-0 right-0 z-50 transition-all duration-300`}
@@ -99,7 +112,7 @@ export default function Header() {
                                 <AnimatePresence>
                                     {link.hasDropdown && isProductDropdownOpen && (
                                         <div
-                                            className="absolute top-full left-[-20px] pt-4" // Padding for hover bridge
+                                            className="absolute top-full left-[-20px] pt-6" // Padding for hover bridge
                                             onMouseEnter={() => setIsProductDropdownOpen(true)}
                                             onMouseLeave={() => setIsProductDropdownOpen(false)}
                                         >
@@ -138,7 +151,10 @@ export default function Header() {
 
                     {/* Right: Icons */}
                     <div className="flex items-center gap-4 md:gap-5">
-                        <button className="text-[#6b4c3b] hover:text-[#4a342a] transition-colors">
+                        <button
+                            className="text-[#6b4c3b] hover:text-[#4a342a] transition-colors hover:cursor-pointer"
+                            onClick={() => setIsSearchOpen(true)}
+                        >
                             <Search size={22} />
                         </button>
                         <button className="relative text-[#6b4c3b] hover:text-[#4a342a] transition-colors">
@@ -244,59 +260,35 @@ export default function Header() {
                                         <AnimatePresence>
 
                                             {link.hasDropdown && expandedMobileLink === link.name && (
-
-
                                                 <motion.div
                                                     initial={{ height: 0, opacity: 0 }}
                                                     animate={{ height: "auto", opacity: 1 }}
                                                     exit={{ height: 0, opacity: 0 }}
                                                     className="overflow-hidden pl-4"
                                                 >
-
-
                                                     <div className="flex flex-col gap-4 py-2">
-
-
-                                                        {productCategories.map(category => (
-
-
-                                                            <div key={category.title}>
-
-
-                                                                <span className="text-sm font-bold text-[#b8604f] block mb-2">{category.title}</span>
-
-
-                                                                <ul className="pl-2 border-l-2 border-stone-100 space-y-2">
-
-
-                                                                    {category.items.map(item => (
-
-
-                                                                        <li key={item.name}>
-
-
-                                                                            <Link
-                                                                                href={item.href}
-                                                                                className="text-stone-600 text-sm block py-1"
-                                                                                onClick={() => setIsMobileMenuOpen(false)}
-                                                                            >
-                                                                                {item.name}
-                                                                            </Link>
-
-                                                                        </li>
-
-                                                                    ))}
-
-                                                                </ul>
-
+                                                        {isLoading && (
+                                                            <div className="flex justify-center py-4">
+                                                                <div className="w-5 h-5 border-2 border-[#6b4c3b] border-t-transparent rounded-full animate-spin"></div>
                                                             </div>
+                                                        )}
 
+                                                        {navbarCategories?.map((category: BrowseByCategoryType) => (
+                                                            <div key={category.id}>
+                                                                <Link
+                                                                    href={`/products?category=${encodeURIComponent(category.category_name)}`}
+                                                                    className="text-stone-600 text-sm block py-1 hover:text-[#b8604f] transition-colors"
+                                                                    onClick={() => setIsMobileMenuOpen(false)}
+                                                                >
+                                                                    {category.category_name}
+                                                                </Link>
+                                                            </div>
                                                         ))}
-
+                                                        {(!isLoading && (!navbarCategories || navbarCategories.length === 0)) && (
+                                                            <div className="text-sm text-stone-400 py-2">No categories found</div>
+                                                        )}
                                                     </div>
-
                                                 </motion.div>
-
                                             )}
 
                                         </AnimatePresence>
@@ -309,11 +301,18 @@ export default function Header() {
 
 
                             <div className="mt-8">
-                                <div className="flex items-center bg-stone-50 rounded-lg px-4 py-3 border border-stone-100">
+                                <div
+                                    className="flex items-center bg-stone-50 rounded-lg px-4 py-3 border border-stone-100 cursor-pointer"
+                                    onClick={() => {
+                                        setIsMobileMenuOpen(false);
+                                        setIsSearchOpen(true);
+                                    }}
+                                >
                                     <input
                                         type="text"
                                         placeholder="Search..."
-                                        className="bg-transparent border-none outline-none text-sm w-full text-stone-800"
+                                        readOnly
+                                        className="bg-transparent border-none outline-none text-sm w-full text-stone-800 cursor-pointer"
                                     />
                                     <Search size={18} className="text-stone-400" />
                                 </div>
