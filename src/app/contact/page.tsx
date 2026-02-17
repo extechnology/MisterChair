@@ -296,40 +296,6 @@ export default function ContactPage() {
             </section>
 
 
-
-
-            {/* --- FAQ Section --- */}
-            <section className="py-10 bg-white border-t border-stone-100">
-
-
-                <div className="max-w-5xl mx-auto px-4">
-
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-center mb-16"
-                    >
-                        <span className="text-stone-400 uppercase tracking-[0.2em] text-xs font-bold mb-3 block">Help Center</span>
-                        <h2 className="text-4xl md:text-5xl font-light text-stone-900">Frequently Asked <span className="font-serif italic">Questions</span></h2>
-                    </motion.div>
-
-
-                    <div className="space-y-4">
-                        {faqs.map((faq, idx) => (
-                            <FAQItem key={idx} question={faq.question} answer={faq.answer} index={idx} />
-                        ))}
-                    </div>
-
-
-                </div>
-
-
-            </section>
-
-
-
             {/* --- Google Map Embed --- */}
             <section className="h-[500px] w-full relative z-0">
 
@@ -345,62 +311,3 @@ export default function ContactPage() {
 
 }
 
-
-
-
-// --- FAQ Item Component ---
-function FAQItem({ question, answer, index }: { question: string; answer: string; index: number }) {
-
-
-    const [isOpen, setIsOpen] = useState(false);
-
-
-    return (
-
-
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.1 }}
-            className="border-b border-stone-200 last:border-0"
-        >
-
-            <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="w-full flex justify-between items-center py-6 text-left focus:outline-none group"
-            >
-                <span className="text-lg md:text-xl font-medium text-stone-800 group-hover:text-[#b8604f] transition-colors">{question}</span>
-
-                <span className={`w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center text-stone-400 transition-all duration-300 ${isOpen ? "bg-[#b8604f] border-[#b8604f] text-white rotate-180" : "group-hover:border-[#b8604f] group-hover:text-[#b8604f]"}`}>
-                    {isOpen ? <Minus size={16} /> : <Plus size={16} />}
-                </span>
-
-            </button>
-
-
-            <AnimatePresence>
-
-                {isOpen && (
-
-                    <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className="overflow-hidden"
-                    >
-
-                        <p className="pb-6 text-stone-500 leading-relaxed max-w-2xl">{answer}</p>
-
-                    </motion.div>
-
-                )}
-
-            </AnimatePresence>
-
-        </motion.div>
-
-    );
-
-}

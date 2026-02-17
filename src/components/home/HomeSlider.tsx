@@ -4,42 +4,13 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { HeroSliderType } from "@/types/type";
 
 
 
 
-// Mock Data for the slider
-const slides = [
-    {
-        id: 1,
-        title: "The Winter Sale",
-        description: "Integer eget at augue suspendisse in vitae enim habitant. At donec pretium ultrices ac luctus vitae nibh erat.",
-        image: "https://www.orangetree.in/cdn/shop/files/Gallery-1ChiyoL-ShapedSofaBuyOnline.jpg?v=1722852692",
-        thumbnail: "https://www.orangetree.in/cdn/shop/files/Gallery-1ChiyoL-ShapedSofaBuyOnline.jpg?v=1722852692",
-        bgColor: "bg-[#e8e6e1]",
-    },
-    {
-        id: 2,
-        title: "Modern Comfort",
-        description: "Experience the ultimate in relaxation with our new collection designed for modern living spaces.",
-        image: "https://cdn.shopaccino.com/plusone/products/grey-look1600x1117-900390_l.jpg?v=651",
-        thumbnail: "https://cdn.shopaccino.com/plusone/products/grey-look1600x1117-900390_l.jpg?v=651",
-        bgColor: "bg-[#dcdcdc]",
-    },
-    {
-        id: 3,
-        title: "Timeless Design",
-        description: "Crafted with precision and care, our furniture stands the test of time both in style and durability.",
-        image: "https://smartwoodfurniture.com/wp-content/uploads/2023/07/JAC-corner-CR-Sofa.jpg",
-        thumbnail: "https://smartwoodfurniture.com/wp-content/uploads/2023/07/JAC-corner-CR-Sofa.jpg",
-        bgColor: "bg-[#e0dcd9]",
-    },
-];
 
-
-
-
-export default function HomeSlider() {
+export default function HomeSlider({data}: {data: HeroSliderType[]}) {
 
 
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -50,7 +21,7 @@ export default function HomeSlider() {
     useEffect(() => {
         const timer = setInterval(() => {
             setDirection(1);
-            setCurrentIndex((prev) => (prev + 1) % slides.length);
+            setCurrentIndex((prev) => (prev + 1) % data?.length);
         }, 6000);
         return () => clearInterval(timer);
     }, []);
@@ -64,7 +35,7 @@ export default function HomeSlider() {
 
 
 
-    const currentSlide = slides[currentIndex];
+    const currentSlide = data[currentIndex];
 
 
 
@@ -88,7 +59,7 @@ export default function HomeSlider() {
     return (
 
 
-        <div className={`relative h-screen w-full overflow-hidden ${currentSlide.bgColor} transition-colors duration-700 ease-in-out`}>
+        <div className={`relative h-screen w-full overflow-hidden transition-colors duration-700 ease-in-out`}>
 
 
             {/* Background Image & Content Container */}
@@ -108,11 +79,21 @@ export default function HomeSlider() {
                     >
 
                         <div className="absolute inset-0 w-full h-full">
-                            {/* Fallback visual if no image */}
-                            <div className="w-full h-full bg-stone-300/20 flex items-center justify-center text-stone-400">
+                            
+                            {/* Desktop image */}
+                            <div className="w-full h-full bg-stone-300/20 items-center justify-center text-stone-400 md:flex hidden">
                                 <img
-                                    src={currentSlide.image}
-                                    alt={currentSlide.title}
+                                    src={currentSlide?.image_landscap}
+                                    alt={currentSlide?.title}
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
+
+                            {/* Mobile image */}
+                            <div className="w-full h-full bg-stone-300/20 items-center justify-center text-stone-400 md:hidden flex">
+                                <img
+                                    src={currentSlide?.image_portrait}
+                                    alt={currentSlide?.title}
                                     className="w-full h-full object-cover"
                                 />
                             </div>
@@ -172,7 +153,7 @@ export default function HomeSlider() {
                 {/* Thumbnails - Bottom Right */}
                 <div className="absolute bottom-12 right-6 md:right-16 z-20 hidden md:flex gap-4">
 
-                    {slides.map((slide, index) => (
+                    {data.map((slide, index) => (
 
                         <button
                             key={slide.id}
@@ -182,8 +163,8 @@ export default function HomeSlider() {
                         >
                             <div className="w-full h-full bg-stone-200 flex items-center justify-center text-[10px] text-stone-500">
                                 <img
-                                    src={slide.thumbnail}
-                                    alt=""
+                                    src={slide.image_landscap}
+                                    alt={slide.title}
                                     className="w-full h-full object-cover"
                                 />
 
