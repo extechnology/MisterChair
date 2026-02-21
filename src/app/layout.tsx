@@ -134,10 +134,10 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
 
         <Providers>
 
-          <ScrollToTop />
-
           <SmoothScrolling>
 
+
+            <ScrollToTop />
 
             <div className="flex flex-col min-h-screen">
 

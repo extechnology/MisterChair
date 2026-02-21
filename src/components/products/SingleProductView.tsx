@@ -4,6 +4,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { ShoppingCart, Minus, Plus, Truck, ShieldCheck, RefreshCw, Star } from "lucide-react";
+import InnerImageZoom from 'react-inner-image-zoom';
+import 'react-inner-image-zoom/lib/styles.min.css';
 import { Button } from "@/components/ui/button";
 import Breadcrumb from "@/components/common/Breadcrumb";
 import { useProductBadges } from "@/hooks/useProductBadges";
@@ -14,6 +16,7 @@ import { Results } from "@/service/product/type";
 
 
 
+// Props type
 interface SingleProductViewProps {
     product: Results;
 }
@@ -115,21 +118,32 @@ export default function SingleProductView({ product }: SingleProductViewProps) {
                         className="space-y-3 lg:sticky lg:top-24 max-w-2xl w-full mx-auto"
                     >
 
-                        <div className="relative w-full aspect-4/3 md:h-[430px] bg-[#f8f8f8] rounded-2xl overflow-hidden shadow-xs border-2 border-gray-100 group">
+                        <div className="relative w-full bg-[#f8f8f8] rounded-2xl overflow-hidden shadow-xs border-2 border-gray-100 group flex items-center justify-center min-h-[300px] md:min-h-[430px]">
 
 
                             <AnimatePresence mode="wait">
 
-                                <motion.img
+                                <motion.div
                                     key={`${selectedColorIndex}-${selectedImageIndex}`}
-                                    src={displayImages[selectedImageIndex] || displayImages[0]}
-                                    alt={product?.name}
                                     initial={{ opacity: 0, scale: 1.05 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     exit={{ opacity: 0 }}
                                     transition={{ duration: 0.4 }}
-                                    className="w-full h-full object-contain p-0 group-hover:scale-105 transition-transform duration-700 ease-out mix-blend-multiply"
-                                />
+                                    className="w-full h-full flex items-center justify-center isolate"
+                                    style={{ mixBlendMode: 'multiply' }}
+                                >
+
+                                    <InnerImageZoom
+                                        src={displayImages[selectedImageIndex] || displayImages[0]}
+                                        zoomSrc={displayImages[selectedImageIndex] || displayImages[0]}
+                                        zoomType="hover"
+                                        zoomPreload={true}
+                                        hideCloseButton={true}
+                                        className="w-full h-full object-contain mix-blend-multiply"
+                                        hideHint={true}
+                                    />
+
+                                </motion.div>
 
                             </AnimatePresence>
 
