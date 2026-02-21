@@ -41,7 +41,7 @@ export default function Header() {
 
     const navLinks = [
         { name: "Home", href: "/" },
-        { name: "Product", href: "/product", hasDropdown: true },
+        { name: "Product", href: "/products", hasDropdown: true },
         { name: "Our Story", href: "/story" },
         { name: "Contact Us", href: "/contact" },
     ];
@@ -153,7 +153,7 @@ export default function Header() {
                     <div className="flex items-center gap-4 md:gap-5">
                         <button
                             className="text-[#6b4c3b] hover:text-[#4a342a] transition-colors hover:cursor-pointer"
-                            onClick={() => setIsSearchOpen(true)}
+                            onClick={() => setIsSearchOpen(false)}
                         >
                             <Search size={22} />
                         </button>
@@ -305,7 +305,7 @@ export default function Header() {
                                     className="flex items-center bg-stone-50 rounded-lg px-4 py-3 border border-stone-100 cursor-pointer"
                                     onClick={() => {
                                         setIsMobileMenuOpen(false);
-                                        setIsSearchOpen(true);
+                                        setIsSearchOpen(false);
                                     }}
                                 >
                                     <input
